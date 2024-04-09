@@ -1,0 +1,28 @@
+
+Absolutely, here are some specific examples of the anomalies we discussed, applied to the restaurant management system schema:
+
+1. Decomposition Anomaly:
+
+ Example: The Order table currently stores information about both the order itself (OrderID, TableNo, OrderStatusID, OrderDateTime, TotalAmount, PaymentStatus) and the items included in the order (through the relationship with the Order-Contains-Menu-Item table). This can be a decomposition anomaly.
+
+ Explanation: We can decompose the Order table into two separate tables:
+     A new "OrderDetails" table with columns like OrderID (primary key), TableNo, OrderStatusID, OrderDateTime, TotalAmount, and PaymentStatus.
+     The existing Order-Contains-Menu-Item table remains to link specific menu items to individual orders.
+
+ Benefit: This separation improves data organization. The "OrderDetails" table focuses on order details, while the Order-Contains-Menu-Item table focuses on the order-item relationship. This can simplify queries and data manipulation tasks.
+
+2. Inconsistent Surrogate Keys:
+
+ Example: Imagine the ReservationID and OrderID are simply auto-incrementing integer values with no inherent meaning.
+
+ Explanation: Assigning new reservation and order IDs even after deleting old records can lead to confusion. For instance, Reservation #10 might refer to entirely different reservations over time.
+
+ Improvement: Consider using surrogate keys that incorporate some meaning. You could include a prefix like "RES-" for reservations and "ORD-" for orders, followed by a sequential number. This can provide better context and avoid confusion, especially when dealing with historical data.
+
+3. Data Redundancy due to Multi-Valued Attributes:
+
+ Example: The Customer table might store a customer's phone numbers (home, mobile, work) in a single comma-separated field.
+
+ Explanation: This approach creates redundancy if a customer has multiple phone numbers. Updating one number requires modifying the entire comma-separated list, which can be error-prone. Additionally, querying for specific phone number types becomes more complex.
+
+ Solution:  Introduce a separate table "CustomerPhones" with columns like CustomerID (foreign key to Customer table), PhoneType (e.g., "Home," "Mobile," "Work"), and PhoneNumber. This allows storing multiple phone numbers for a customer and simplifies managing and querying phone number data.
