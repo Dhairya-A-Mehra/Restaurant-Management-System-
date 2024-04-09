@@ -9,6 +9,16 @@ CREATE TABLE Employee (
   DateOfJoining DATE NOT NULL
 );
 
+
+CREATE TABLE CustomerPhone (
+  CustomerPhoneID INT PRIMARY KEY AUTO_INCREMENT,
+  CustomerID INT NOT NULL,
+  PhoneType VARCHAR(255) NOT NULL,
+  PhoneNumber VARCHAR(20) NOT NULL,
+  CONSTRAINT fk_customerphone_customer FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+
+
 CREATE TABLE Customer (
   CustomerID INT PRIMARY KEY AUTO_INCREMENT,
   Name VARCHAR(255) NOT NULL,
@@ -73,10 +83,3 @@ CREATE TABLE Parking (
 );
 
 
-CREATE TABLE CustomerPhone (
-  CustomerPhoneID INT PRIMARY KEY AUTO_INCREMENT,
-  CustomerID INT NOT NULL,
-  PhoneType VARCHAR(255) NOT NULL,
-  PhoneNumber VARCHAR(20) NOT NULL,
-  CONSTRAINT fk_customerphone_customer FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
-);
