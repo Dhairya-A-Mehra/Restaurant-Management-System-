@@ -30,8 +30,8 @@ public class SignIn extends javax.swing.JFrame {
         signin = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         textname = new javax.swing.JTextField();
-        phone_num = new javax.swing.JLabel();
-        text_phone_num = new javax.swing.JTextField();
+        email = new javax.swing.JLabel();
+        text_email = new javax.swing.JTextField();
         password = new javax.swing.JLabel();
         text_password = new javax.swing.JTextField();
         back = new javax.swing.JButton();
@@ -61,11 +61,11 @@ public class SignIn extends javax.swing.JFrame {
         textname.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textname.setText("Enter your name");
 
-        phone_num.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        phone_num.setText("Phone Number");
+        email.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        email.setText("Email - ID");
 
-        text_phone_num.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        text_phone_num.setText("Enter your phone number");
+        text_email.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        text_email.setText("Enter your email id");
 
         password.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         password.setText("Password");
@@ -95,9 +95,9 @@ public class SignIn extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(phone_num)
+                                        .addComponent(email)
                                         .addGap(18, 18, 18)
-                                        .addComponent(text_phone_num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(name)
                                         .addGap(18, 18, 18)
@@ -106,7 +106,7 @@ public class SignIn extends javax.swing.JFrame {
                                         .addComponent(password)
                                         .addGap(18, 18, 18)
                                         .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 43, Short.MAX_VALUE))
+                        .addGap(0, 62, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(back)
@@ -126,8 +126,8 @@ public class SignIn extends javax.swing.JFrame {
                     .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phone_num)
-                    .addComponent(text_phone_num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email)
+                    .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password)
@@ -183,14 +183,14 @@ public class SignIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JLabel email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel name;
     private javax.swing.JLabel password;
-    private javax.swing.JLabel phone_num;
     private javax.swing.JLabel signin;
+    private javax.swing.JTextField text_email;
     private javax.swing.JTextField text_password;
-    private javax.swing.JTextField text_phone_num;
     private javax.swing.JTextField textname;
     // End of variables declaration//GEN-END:variables
 }
