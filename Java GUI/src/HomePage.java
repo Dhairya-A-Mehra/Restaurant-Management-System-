@@ -83,6 +83,11 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         signup.setText("Sign Up");
+        signup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -148,6 +153,12 @@ public class HomePage extends javax.swing.JFrame {
         new SignIn().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_signinActionPerformed
+
+    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
+        // TODO add your handling code here:
+        new SignUp().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_signupActionPerformed
 
     /**
      * @param args the command line arguments
