@@ -81,11 +81,11 @@
                                   <Component id="email" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="text_email" min="-2" max="-2" attributes="0"/>
-                                  <Component id="password_field" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <Component id="accounttype" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textname" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textname" pref="180" max="32767" attributes="0"/>
+                                  <Component id="accounttype" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="text_email" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="password_field" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
@@ -93,7 +93,7 @@
                               <Component id="back" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="save" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="45" max="32767" attributes="0"/>
                               <Component id="next" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           </Group>
@@ -159,6 +159,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="24" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Sign In"/>
       </Properties>
     </Component>
@@ -175,7 +178,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Enter your name"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textnameActionPerformed"/>
@@ -194,7 +196,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Enter your email id"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="password">

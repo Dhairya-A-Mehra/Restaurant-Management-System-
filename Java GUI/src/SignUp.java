@@ -30,10 +30,10 @@ public class SignUp extends javax.swing.JFrame {
         name = new javax.swing.JLabel();
         textname = new javax.swing.JTextField();
         password = new javax.swing.JLabel();
-        text_password = new javax.swing.JTextField();
         password1 = new javax.swing.JLabel();
-        text_password1 = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
+        newpassword = new javax.swing.JPasswordField();
+        reenterpassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,17 +46,12 @@ public class SignUp extends javax.swing.JFrame {
         name.setText("Username");
 
         textname.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        textname.setText("Enter your name");
 
         password.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         password.setText("New Password");
 
-        text_password.setText("Enter your password");
-
         password1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         password1.setText("Re-Enter Password");
-
-        text_password1.setText("Enter your password");
 
         submit.setText("Submit");
         submit.addActionListener(new java.awt.event.ActionListener() {
@@ -79,22 +74,18 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(signup))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(password)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(name)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(password1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(text_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 53, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(password1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(newpassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(reenterpassword, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
+                        .addGap(122, 122, 122)
                         .addComponent(submit)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -113,12 +104,12 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password)
-                    .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password1)
-                    .addComponent(text_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                    .addComponent(reenterpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
                 .addComponent(submit)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -170,12 +161,12 @@ public class SignUp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel name;
+    private javax.swing.JPasswordField newpassword;
     private javax.swing.JLabel password;
     private javax.swing.JLabel password1;
+    private javax.swing.JPasswordField reenterpassword;
     private javax.swing.JLabel signup;
     private javax.swing.JButton submit;
-    private javax.swing.JTextField text_password;
-    private javax.swing.JTextField text_password1;
     private javax.swing.JTextField textname;
     // End of variables declaration//GEN-END:variables
 }

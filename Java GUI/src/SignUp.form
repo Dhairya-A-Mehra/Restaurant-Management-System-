@@ -34,29 +34,23 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="password" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="text_password" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="name" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="textname" min="-2" pref="180" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="password1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="text_password1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="name" max="32767" attributes="0"/>
+                                  <Component id="password" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="password1" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="9" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textname" alignment="1" pref="180" max="32767" attributes="0"/>
+                                  <Component id="newpassword" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="reenterpassword" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="submit" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -81,14 +75,14 @@
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="password" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="text_password" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="newpassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="password1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="text_password1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="reenterpassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Component id="submit" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -124,7 +118,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Enter your name"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="password">
@@ -135,22 +128,12 @@
         <Property name="text" type="java.lang.String" value="New Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="text_password">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter your password"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="password1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Re-Enter Password"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="text_password1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter your password"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="submit">
@@ -160,6 +143,10 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="newpassword">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="reenterpassword">
     </Component>
   </SubComponents>
 </Form>
