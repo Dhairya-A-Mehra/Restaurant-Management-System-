@@ -64,3 +64,10 @@ salary int,
 experience int,
 role varchar(50)
 );
+
+create table chef (
+staff_id int,
+foreign key(staff_id) references staff(staff_id),
+chef_name varchar(50),
+specialization varchar(50)
+);
