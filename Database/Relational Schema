@@ -4,7 +4,7 @@ Contains: Contain_id (PK), Order_id(FK), Item_id(FK)
 Order_Status: Status_id (PK), Status_name
 Customer: Customer_id (PK), Name, PhoneNo, Email
 Has: Has_id (PK), Customer_id (FK), Order_id (FK)
-Feedback: Feedback_id (PK), Feedback_Date_Time, Rating, Customer, Customer_id (FK)
+Feedback: Feedback_id (PK), Feedback_Date_Time, Rating, Comments, Customer_id (FK)
 Staff: Staff_id (PK), Name, PhoneNo, Date_of_Joining, Salary, Experience, Role
 Chef: Staff_id (FK), Name, Specialization
 Prepares: Prepares_id (PK), Staff_id (FK), Order_id (FK)
