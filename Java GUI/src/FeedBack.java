@@ -7,6 +7,7 @@
  *
  * @author mpdha
  */
+import javax.swing.JOptionPane;
 public class FeedBack extends javax.swing.JFrame {
 
     /**
@@ -158,6 +159,7 @@ public class FeedBack extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Successfully saved your feedback! \nThank You ", "Feedback Saved", JOptionPane.INFORMATION_MESSAGE);
         submit.setEnabled(true);
     }//GEN-LAST:event_saveActionPerformed
 
