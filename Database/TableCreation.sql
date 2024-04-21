@@ -54,3 +54,13 @@ comments varchar(1000),
 customer_id int,
 foreign key(customer_id) references customer(customer_id)
 );
+
+create table staff(
+staff_id int primary key auto_increment,
+staff_name varchar(50),
+phone_no long,
+date_of_joining date,
+salary int,
+experience int,
+role varchar(50)
+);
