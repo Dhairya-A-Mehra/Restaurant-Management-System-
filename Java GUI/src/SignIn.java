@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import javax.swing.JOptionPane;
+import java.awt.Color;
 /**
  *
  * @author mpdha
@@ -13,6 +14,8 @@ public class SignIn extends javax.swing.JFrame {
      * Creates new form SignIn
      */
     public SignIn() {
+        
+        getContentPane().setBackground(new Color(0,155,155));
         initComponents();
     }
 
@@ -28,7 +31,6 @@ public class SignIn extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        signin = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         textname = new javax.swing.JTextField();
         email = new javax.swing.JLabel();
@@ -40,6 +42,9 @@ public class SignIn extends javax.swing.JFrame {
         customer = new javax.swing.JLabel();
         accounttype = new javax.swing.JComboBox<>();
         save = new javax.swing.JButton();
+        forgetpassword = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        signin = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -55,14 +60,10 @@ public class SignIn extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 255, 204));
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mpdha\\Downloads\\Indian Food (1).png")); // NOI18N
-
-        signin.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        signin.setForeground(new java.awt.Color(255, 0, 51));
-        signin.setText("Sign In");
 
         name.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         name.setText("Username");
@@ -111,12 +112,45 @@ public class SignIn extends javax.swing.JFrame {
         accounttype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Staff" }));
 
         save.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        save.setText("Save");
+        save.setText("Login");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
             }
         });
+
+        forgetpassword.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        forgetpassword.setForeground(new java.awt.Color(51, 51, 255));
+        forgetpassword.setText("Forget Password");
+        forgetpassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgetpasswordMouseClicked(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        signin.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        signin.setForeground(new java.awt.Color(255, 0, 51));
+        signin.setText("Sign In");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(signin)
+                .addContainerGap(195, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(signin)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,10 +159,6 @@ public class SignIn extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(signin)
-                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,14 +176,23 @@ public class SignIn extends javax.swing.JFrame {
                                     .addComponent(accounttype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(text_email)
                                     .addComponent(password_field))
-                                .addGap(71, 71, 71))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(back)
-                                .addGap(39, 39, 39)
-                                .addComponent(save)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                                .addComponent(next)
-                                .addGap(54, 54, 54))))))
+                                .addGap(106, 106, 106))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(122, 122, 122)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(save)
+                                            .addComponent(forgetpassword))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(back)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(next)))
+                                .addGap(26, 26, 26))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,13 +200,14 @@ public class SignIn extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(signin)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(customer)
-                        .addGap(34, 34, 34)
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(customer)
+                            .addComponent(accounttype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
                         .addComponent(name)
                         .addGap(42, 42, 42)
                         .addComponent(email)
@@ -176,13 +216,13 @@ public class SignIn extends javax.swing.JFrame {
                             .addComponent(password)
                             .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(accounttype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(49, 49, 49)
                         .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(forgetpassword)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back)
                     .addComponent(next)
@@ -209,12 +249,20 @@ public class SignIn extends javax.swing.JFrame {
 
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_nextActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Login Successful!", "Successful Login", JOptionPane.INFORMATION_MESSAGE);
         next.setEnabled(true);
     }//GEN-LAST:event_saveActionPerformed
+
+    private void forgetpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetpasswordMouseClicked
+        // TODO add your handling code here:
+        new ForgetPassword().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_forgetpasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -242,7 +290,7 @@ public class SignIn extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -256,9 +304,11 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JButton back;
     private javax.swing.JLabel customer;
     private javax.swing.JLabel email;
+    private javax.swing.JLabel forgetpassword;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel name;
     private javax.swing.JButton next;
     private javax.swing.JLabel password;

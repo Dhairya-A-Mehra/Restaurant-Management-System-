@@ -36,10 +36,12 @@ public class SignUp extends javax.swing.JFrame {
         reenterpassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mpdha\\Downloads\\Indian Food (1).png")); // NOI18N
 
         signup.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        signup.setForeground(new java.awt.Color(255, 0, 0));
         signup.setText("Sign Up");
 
         name.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
