@@ -22,3 +22,11 @@ payment_status bool,
 status_id int,
 foreign key(status_id) references order_status(status_id)
 );
+
+create table contains (
+contain_id int primary key auto_increment,
+order_id int,
+foreign key(order_id) references orders(order_id),
+item_id int,
+foreign key(item_id) references menu_item(item_id)
+);
