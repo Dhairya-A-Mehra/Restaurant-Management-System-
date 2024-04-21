@@ -37,3 +37,11 @@ customer_name varchar(50),
 phone_no long,
 email_id varchar(50)
 );
+
+create table has (
+has_id int primary key auto_increment,
+customer_id int,
+foreign key(customer_id) references customer(customer_id),
+order_id int,
+foreign key(order_id) references orders(order_id)
+);
