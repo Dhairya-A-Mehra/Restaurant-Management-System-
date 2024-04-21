@@ -45,3 +45,12 @@ foreign key(customer_id) references customer(customer_id),
 order_id int,
 foreign key(order_id) references orders(order_id)
 );
+
+create table feedback (
+feedback_id int primary key auto_increment,
+feedback_date_time datetime,
+rating int,
+comments varchar(1000),
+customer_id int,
+foreign key(customer_id) references customer(customer_id)
+);
