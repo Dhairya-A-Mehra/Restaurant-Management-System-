@@ -1,1 +1,10 @@
-
+1. Menu-Item: Item_id (PK), Item_Name, Cusine_Type, Price
+2. Order: Order_id (PK), Order_Date_Time, Total_Amount, Payment_Status, Status_id (FK)
+3. Contains: Contain_id (PK), Order_id(FK), Item_id(FK)
+4. Order_Status: Status_id (PK), Status_name
+5. Customer: Customer_id (PK), Name, PhoneNo, Email
+6. Has: Has_id (PK), Customer_id (FK), Order_id (FK)
+7. Feedback: Feedback_id (PK), Feedback_Date_Time, Rating, Customer, Customer_id (FK)
+8. Staff: Staff_id (PK), Name, PhoneNo, Date_of_Joining, Salary, Experience, Role
+9. Chef: Staff_id (FK), Name, Specialization
+10. Prepares: Prepares_id (PK), Staff_id (FK), Order_id (FK)
