@@ -71,3 +71,11 @@ foreign key(staff_id) references staff(staff_id),
 chef_name varchar(50),
 specialization varchar(50)
 );
+
+create table prepares (
+prepares_id int primary key auto_increment,
+staff_id int,
+foreign key(staff_id) references staff(staff_id),
+order_id int,
+foreign key(order_id) references orders(order_id)
+);
