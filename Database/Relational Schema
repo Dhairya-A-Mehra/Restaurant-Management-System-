@@ -1,4 +1,4 @@
-Menu-Item: Item_id (PK), Item_Name, Cusine_Type, Price
+Menu-Item: Item_id (PK), Item_Name, Cuisine_Type, Price
 Order: Order_id (PK), Order_Date_Time, Total_Amount, Payment_Status, Status_id (FK)
 Contains: Contain_id (PK), Order_id(FK), Item_id(FK)
 Order_Status: Status_id (PK), Status_name
