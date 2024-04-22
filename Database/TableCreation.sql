@@ -79,3 +79,11 @@ foreign key(staff_id) references staff(staff_id),
 order_id int,
 foreign key(order_id) references orders(order_id)
 );
+
+-- below table is for storing images 
+create table images (
+item_id int,
+foreign key(item_id) references menu_item(item_id),
+item_name varchar(50),
+img blob
+);
