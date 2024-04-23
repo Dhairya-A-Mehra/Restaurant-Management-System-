@@ -35,7 +35,8 @@ create table customer (
 customer_id int primary key auto_increment,
 customer_name varchar(50),
 phone_no long,
-email_id varchar(50)
+email_id varchar(50),
+password varchar(100)
 );
 
 create table has (
