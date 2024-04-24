@@ -1,4 +1,11 @@
-package home;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,13 +17,54 @@ package home;
  * @author mpdha
  */
 public class Detail extends javax.swing.JFrame {
+    private int foodId; // Variable to store the ID of the food item
+    
+    public Detail(int foodId) {
+        this.foodId = foodId;
+        initComponents();
+       
+        displayFoodDetails();
+    }
+    
+    private void displayFoodDetails() {
+        try {
+            // Establish database connection
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rms", "root", "nakul21");
+            
+            // Prepare SQL statement to retrieve details of the food item
+            String query = "SELECT * FROM menu_item WHERE item_id = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, foodId);
+            
+            // Execute the query
+            ResultSet rs = pstmt.executeQuery();
+            
+            // Check if the result set has data
+            if (rs.next()) {
+                // Retrieve details from the result set
+                String itemName = rs.getString("item_name");
+                String itemDescription = rs.getString("description");
+                
+                // Display the details
+                item_name.setText(itemName);
+                description1.setLineWrap(true); // Set line wrap to true
+                description1.setWrapStyleWord(true);
+                description1.setText(itemDescription);
+            } else {
+                JOptionPane.showMessageDialog(this, "Food item not found!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            // Close the connection
+            conn.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     /**
      * Creates new form Detail
      */
-    public Detail() {
-        initComponents();
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +81,6 @@ public class Detail extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         item_name = new javax.swing.JLabel();
-        description = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         description1 = new javax.swing.JTextArea();
         cart = new javax.swing.JButton();
@@ -42,7 +89,9 @@ public class Detail extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        details.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
+        details.setFont(new java.awt.Font("Bookman Old Style", 1, 36)); // NOI18N
         details.setText("Details");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -62,42 +111,58 @@ public class Detail extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        image.setText("image");
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Indian Food (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(image)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 224, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(image)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        item_name.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+
+        item_name.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         item_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         item_name.setText("Dish Name");
 
-        description.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        description.setText("Description");
-
+        description1.setBackground(new java.awt.Color(204, 204, 255));
         description1.setColumns(20);
-        description1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        description1.setFont(new java.awt.Font("Bookman Old Style", 0, 16)); // NOI18N
         description1.setRows(5);
         jScrollPane1.setViewportView(description1);
 
-        cart.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cart.setBackground(new java.awt.Color(0, 0, 0));
+        cart.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        cart.setForeground(new java.awt.Color(204, 204, 204));
         cart.setText("Add to Cart");
 
-        back.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        back.setBackground(new java.awt.Color(0, 0, 0));
+        back.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        back.setForeground(new java.awt.Color(204, 204, 204));
         back.setText("Back");
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -105,32 +170,28 @@ public class Detail extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(item_name)
-                .addGap(126, 126, 126))
+                .addComponent(item_name, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(back)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cart)
-                        .addGap(15, 15, 15))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(description))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(15, 15, 15))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(item_name)
-                .addGap(31, 31, 31)
-                .addComponent(description)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(item_name, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cart)
                     .addComponent(back))
@@ -154,7 +215,7 @@ public class Detail extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -162,6 +223,15 @@ public class Detail extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backActionPerformed
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        // TODO add your handling code here:
+        new Menu().setVisible(true);
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,7 +263,7 @@ public class Detail extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Detail().setVisible(true);
+                //new Detail().setVisible(true);
             }
         });
     }
@@ -201,7 +271,6 @@ public class Detail extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
     private javax.swing.JButton cart;
-    private javax.swing.JLabel description;
     private javax.swing.JTextArea description1;
     private javax.swing.JLabel details;
     private javax.swing.JLabel image;
