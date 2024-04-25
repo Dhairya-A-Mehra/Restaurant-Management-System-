@@ -51,7 +51,8 @@ foreign key(customer_id) references customer(customer_id)
 CREATE TABLE feedback (
     feedback_id INT AUTO_INCREMENT PRIMARY KEY,
     feedback_text VARCHAR(255),
-    feedback_date DATE
+    feedback_date DATE,
+    rating INT
 );
 
 create table staff(
