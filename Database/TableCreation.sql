@@ -39,14 +39,6 @@ email_id varchar(50),
 password varchar(100)
 );
 
-create table has (
-has_id int primary key auto_increment,
-customer_id int,
-foreign key(customer_id) references customer(customer_id),
-order_id int,
-foreign key(order_id) references orders(order_id)
-);
-
 create table feedback (
 feedback_id int primary key auto_increment,
 feedback_date_time datetime,
