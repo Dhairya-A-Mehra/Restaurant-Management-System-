@@ -39,13 +39,19 @@ email_id varchar(50),
 password varchar(100)
 );
 
-create table feedback (
+/*create table feedback (
 feedback_id int primary key auto_increment,
 feedback_date_time datetime,
 rating int,
 comments varchar(1000),
 customer_id int,
 foreign key(customer_id) references customer(customer_id)
+); for DBMS */
+
+CREATE TABLE feedback (
+    feedback_id INT AUTO_INCREMENT PRIMARY KEY,
+    feedback_text VARCHAR(255),
+    feedback_date DATE
 );
 
 create table staff(
