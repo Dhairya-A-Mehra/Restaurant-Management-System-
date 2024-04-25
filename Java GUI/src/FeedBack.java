@@ -170,7 +170,7 @@ public class FeedBack extends javax.swing.JFrame {
     }                                      
 private boolean addFeedbackToDatabase(String rating, String comment) {
      String query = "INSERT INTO feedback (feedback_text, feedback_date, rating) VALUES (?, ?, ?)";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rpm", "root", "Mayank@0501");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rms", "root", "Mayank_password");
              PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, comment);
             java.sql.Date feedbackDate = new java.sql.Date(new Date().getTime());
