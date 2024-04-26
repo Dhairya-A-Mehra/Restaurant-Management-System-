@@ -73,7 +73,7 @@ public class FeedBack extends javax.swing.JFrame {
         rating.setText("Rating");
         rating.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        rating1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5" }));
+        rating1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
         comment.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         comment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -170,7 +170,7 @@ public class FeedBack extends javax.swing.JFrame {
     }                                      
 private boolean addFeedbackToDatabase(String rating, String comment) {
      String query = "INSERT INTO feedback (feedback_text, feedback_date, rating) VALUES (?, ?, ?)";
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rms", "root", "Mayank_password");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rpm", "root", "Mayank@0501");
              PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, comment);
             java.sql.Date feedbackDate = new java.sql.Date(new Date().getTime());
